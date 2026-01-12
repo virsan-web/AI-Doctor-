@@ -1,8 +1,9 @@
 import streamlit as st
 from langchain_groq import ChatGroq
+from dotenv import load_dotenv
+load_dotenv()
 llm = ChatGroq(model="llama-3.3-70b-versatile",
-               temperature=0.5,
-               api_key="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")
+               temperature=0.5)
 st.title('!!!AI DOCTOR!!!')
 age=st.text_input('Enter Age')
 
@@ -35,3 +36,4 @@ if st.button("Submit"):
     print("PROMPT",prompt)
     response= llm.invoke(prompt)
     st.write(response.content)
+
